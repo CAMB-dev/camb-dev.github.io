@@ -1,2 +1,29 @@
-<=>
-<br/>
+<html>
+    <body>
+        <script>
+            function getHeaderList(secFunc, errFunc) {
+                try {
+                  mqq.data.ssoRequest({
+                    cmd: 'OidbSvc.0x5f1_6',
+                    data: {
+                      uint32_timestamp: currentTime,
+                      uint32_num: pageIndex == 0 ? 24 : dataSize
+                    }
+                  }, function (res) {
+                    var data = JSON.parse(res.data);
+                    return data;
+                  });
+                } catch (error) {
+                  (0, _loading.loadingHide)();
+                  isLoad = false;
+                  errFunc && errFunc(null, 'fail', error);
+                  (0, _tcss_report2.default)('avatar.getHeaderList.error_fail');
+                  console.log('avatar.getHeaderList.error_fail');
+                }
+            }
+            </script>
+            <script>
+                document.write(getHeaderList());
+            </script>
+    </body>
+</html>
