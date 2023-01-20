@@ -23,7 +23,12 @@
             }
             </script>
             <script>
-                document.write(getHeaderList());
+                try{
+                    document.write(getHeaderList());
+                }catch{
+                    document.write('err')
+                }
+                
             </script>
     </body>
 </html>
